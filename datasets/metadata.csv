@@ -126,4 +126,4 @@ NHP,datasets/NHP/OWL_monkey/OWLmonkey_h1.paf.stats.bed,OWLmonkey_h1_86718_ANA,CH
 NHP,datasets/NHP/OWL_monkey/OWLmonkey_h2.paf.stats.bed,OWLmonkey_h2_86718_ANA,CHM13_v1.0
 fiberseq,datasets/fiberseq/GM08714_1.bed,GM08714_1,CHM13_v1.1
 fiberseq,datasets/fiberseq/GM08714_2.bed,GM08714_2,CHM13_v1.1
-test_saff,datasets/test_saff/Verkko_hap1_saffire_format.bed,Verkko_hap1_hg38,Verkko_hap1_hg38
+test_saff,datasets/test_saff/Verkko_hap1_saffire_format.bed,Verkko_hap1_hg38,GRCh38
