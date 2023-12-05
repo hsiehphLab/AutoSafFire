@@ -339,12 +339,12 @@ function read_in_bed9_defaults() {
     zoom_bed_9 = {};
     var bed_files = {
         ref: [
-            `datasets/${REF}/${REF}_CenSat.bed`,
-            `datasets/${REF}/${REF}_dupmasker_colors.bed`,
-            `datasets/${REF}/${REF}_genes_small.bed`,
+         //   `datasets/${REF}/${REF}_CenSat.bed`,
+         // `datasets/${REF}/${REF}_dupmasker_colors.bed`,
+        //    `datasets/${REF}/${REF}_genes_small.bed`,
             `datasets/${REF}/${REF}_genes.bed`,
-            `datasets/${REF}/${REF}_gaps.bed`,
-            `datasets/${REF}/CHM1_raw.bed9`,
+        //    `datasets/${REF}/${REF}_gaps.bed`,
+        //    `datasets/${REF}/CHM1_raw.bed9`,
         ],
         query: [
             `datasets/${QUERY}/${QUERY}_dupmasker_colors.bed`,
