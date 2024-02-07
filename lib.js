@@ -347,7 +347,7 @@ function read_in_bed9_defaults() {
         //    `datasets/${REF}/CHM1_raw.bed9`,
         ],
         query: [
-            `datasets/${QUERY}/${QUERY}_annot.bed`
+          //  `datasets/${QUERY}/${QUERY}_annot.bed`
             `datasets/${QUERY}/${QUERY}_dupmasker_colors.bed`,
             `datasets/${QUERY}/${QUERY}_gaps.bed`,
             `datasets/${QUERY}/${QUERY}_CenSat.bed`,
