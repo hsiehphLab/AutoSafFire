@@ -128,8 +128,8 @@ fiberseq,datasets/fiberseq/GM08714_1.bed,GM08714_1,CHM13_v1.1
 fiberseq,datasets/fiberseq/GM08714_2.bed,GM08714_2,CHM13_v1.1
 Hseih_HG38,datasets/Hseih_HG38/PNG15_hap1_saffire_format.bed,PNG15_hap1_hg38,GRCh38
 Hseih_HG38,datasets/Hseih_HG38/PNG15_hap2_saffire_format.bed,PNG15_hap2_hg38,GRCh38
-Hseih_HG38,datasets/Hseih_HG38/HiFiasm_hap1_saffire_format.bed,HiFiasm_hap1_hg38,GRCh38
-Hseih_HG38,datasets/Hseih_HG38/HiFi_hap2_saffire_format.bed,HiFiasm_hap2_hg38,GRCh38
+Hseih_HG38,datasets/Hseih_HG38/PNG16_hap1_saffire_format.bed,PNG16_hap1_hg38,GRCh38
+Hseih_HG38,datasets/Hseih_HG38/PNG16_hap2_saffire_format.bed,PNG16_hap2_hg38,GRCh38
 Hseih_T2T,datasets/Hseih_T2T/Verkko_hap1_T2T_saffire_format.bed,Verkko_hap1_T2T,CHM13_v1.1
 Hseih_T2T,datasets/Hseih_T2T/Verkko_hap2_T2T_saffire_format.bed,Verkko_hap2_T2T,CHM13_v1.1
 Hseih_T2T,datasets/Hseih_T2T/HiFi_hap1_T2T_saffire_format.bed,HiFiasm_hap1_T2T,CHM13_v1.1
