@@ -350,7 +350,6 @@ function read_in_bed9_defaults() {
         query: [
             `datasets/${REF}/${QUERY}_annot.bed`,
             `datasets/${QUERY}/PNG15_hap1_hg38_annot.bed`,
-            `datasets/${CHM13_v1.1}/CHM13_v1.1_dupmasker_colors.bed`,
         //    `datasets/${QUERY}/${QUERY}_dupmasker_colors.bed`,
         //    `datasets/${QUERY}/${QUERY}_gaps.bed`,
         //    `datasets/${QUERY}/${QUERY}_CenSat.bed`,
