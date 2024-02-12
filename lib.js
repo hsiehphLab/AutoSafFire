@@ -352,8 +352,8 @@ function read_in_bed9_defaults() {
         //    `datasets/${REF}/test1/${QUERY}_asm_annot.bed`,
         //    `datasets/${REF}/${QUERY}_annot.bed`,
         //    `datasets/${QUERY}/${QUERY}_dupmasker_colors.bed`,
-        //    `datasets/${QUERY}/${QUERY}_gaps.bed`,
-            `datasets/${QUERY}/${QUERY}_CenSat.bed`,
+            `datasets/${QUERY}/${QUERY}_gaps.bed`,
+        //    `datasets/${QUERY}/${QUERY}_CenSat.bed`,
         ]
     }
     for (const key in bed_files) {
