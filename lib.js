@@ -343,17 +343,17 @@ function read_in_bed9_defaults() {
          // `datasets/${REF}/${REF}_dupmasker_colors.bed`,
         //    `datasets/${REF}/${REF}_genes_small.bed`,
         //    `datasets/${REF}/${REF}_genes.bed`,
-            `datasets/${REF}/test1/${QUERY}_annot.bed`,
+        //    `datasets/${REF}/test1/${QUERY}_annot.bed`,
            // `datasets/${REF}/${REF}_PNG15_hap1_hg38_annot.bed`,
         //    `datasets/${REF}/${REF}_gaps.bed`,
         //    `datasets/${REF}/CHM1_raw.bed9`,
         ],
         query: [
-            `datasets/${REF}/test1/${QUERY}_asm_annot.bed`,
+        //    `datasets/${REF}/test1/${QUERY}_asm_annot.bed`,
         //    `datasets/${REF}/${QUERY}_annot.bed`,
         //    `datasets/${QUERY}/${QUERY}_dupmasker_colors.bed`,
         //    `datasets/${QUERY}/${QUERY}_gaps.bed`,
-        //    `datasets/${QUERY}/${QUERY}_CenSat.bed`,
+            `datasets/${QUERY}/${QUERY}_CenSat.bed`,
         ]
     }
     for (const key in bed_files) {
