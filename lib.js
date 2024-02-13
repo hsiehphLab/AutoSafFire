@@ -350,9 +350,10 @@ function read_in_bed9_defaults() {
         ],
         query: [
               `datasets/${REF}/test2/${QUERY}_annot.bed`,
+              ``,
         //    `datasets/${REF}/${QUERY}_annot.bed`,
         //    `datasets/${QUERY}/${QUERY}_dupmasker_colors.bed`,
-        //    `datasets/${QUERY}/${QUERY}_gaps.bed`,
+            `datasets/${QUERY}/${QUERY}_gaps.bed`,
         //    `datasets/${QUERY}/${QUERY}_CenSat.bed`,
         ]
     }
