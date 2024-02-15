@@ -303,8 +303,8 @@ function create_bed9(data, bed_file, is_query) {
     var keys = Object.keys(bed9_data)
         .filter(key => bed9_data[key][0].is_query == is_query);
     // make the bed rows the same height
-    //for (i = 0; i < other_keys.length - keys.length + 1; i++) {
-    //    keys.push(other_keys[i]);
+    for (i = 0; i < other_keys.length - keys.length + 1; i++) {
+        keys.push(other_keys[i]);
     }
     // make the bed yscales
     console.log(`KEYS FOR BED FILES ${is_query}`, keys);
