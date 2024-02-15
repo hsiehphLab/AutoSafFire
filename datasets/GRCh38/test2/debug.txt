@@ -1,0 +1,73 @@
+function read_in_bed9_defaults() {
+    bed9_data = {};
+    zoom_bed_9 = {};
+    var bed_files = {
+        ref: [
+         //   `datasets/${REF}/${REF}_CenSat.bed`,
+         // `datasets/${REF}/${REF}_dupmasker_colors.bed`,
+        //    `datasets/${REF}/${REF}_genes_small.bed`,
+        //    `datasets/${REF}/${REF}_genes.bed`,
+        //    `datasets/${REF}/test1/${QUERY}_annot.bed`,
+           // `datasets/${REF}/${REF}_PNG15_hap1_hg38_annot.bed`,
+        //    `datasets/${REF}/${REF}_gaps.bed`,
+        //    `datasets/${REF}/CHM1_raw.bed9`,
+        ],
+        query: [
+              `datasets/${REF}/test2/${QUERY}_annot.bed`,
+        //      ``,
+        //    `datasets/${REF}/${QUERY}_annot.bed`,
+        //    `datasets/${QUERY}/${QUERY}_dupmasker_colors.bed`,
+            `datasets/${QUERY}/${QUERY}_gaps.bed`,
+        //    `datasets/${QUERY}/${QUERY}_CenSat.bed`,
+        ]
+    }
+    for (const key in bed_files) {
+        for (const bed_file of bed_files[key]) {
+            console.log(`loading bed file for ${key} ${key == "query"} ${key}: ` + bed_file);
+            d3.tsv(bed_file)
+                .then(function (d) {   // Handle the resolved Promise
+                    return create_bed9(d, bed_file, key == "query");
+                })
+            /*
+            d3.text(bed_file, function (text) {
+                data = d3.csvParseRows(text);
+                create_bed9(data, bed_file, key == "query");
+            });*/
+        }
+    }
+}
+
+    function parseFile() {
+        REF = "USER_REF";
+        QUERY = "USER_QUERY";
+        set_user_hash();
+        read_in_bed9_defaults();
+        //var doesColumnExist = false;
+        var data = d3.tsvParse(reader.result, function (d) {
+            return d;
+        });
+        console.log("upload button parse");
+        create_table(data);
+    }
+};
+
+    var ref = parsedHash.get("ref");
+    var query = parsedHash.get("query");
+    var dataset = parsedHash.get("dataset");
+    if (ref != REF || query != QUERY || dataset != CUR_DATASET) {
+        REF = ref;
+        QUERY = query;
+        CUR_DATASET = dataset;
+        var tbl_file = ALIGNMENTS[CUR_DATASET + REF + QUERY]
+        d3.tsv(tbl_file)
+            .then(function (d) {   // Handle the resolved Promise
+                return create_table(d);
+            });
+        read_in_bed9_defaults();
+    }
+
+    var other_keys = Object.keys(bed9_data)
+        .filter(key => bed9_data[key][0].is_query != is_query);
+    var keys = Object.keys(bed9_data)
+        .filter(key => bed9_data[key][0].is_query == is_query);
+
