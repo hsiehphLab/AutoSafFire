@@ -349,7 +349,7 @@ function read_in_bed9_defaults() {
         //    `datasets/${REF}/CHM1_raw.bed9`,
         ],
         query: [
-              `datasets/${REF}/test2/${QUERY}_annot.bed`,
+        //      `datasets/${REF}/test2/${QUERY}_annot.bed`,
         //      ``,
         //    `datasets/${REF}/${QUERY}_annot.bed`,
         //    `datasets/${QUERY}/${QUERY}_dupmasker_colors.bed`,
