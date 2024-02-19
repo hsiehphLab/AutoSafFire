@@ -347,7 +347,7 @@ function read_in_bed9_defaults() {
            // `datasets/${REF}/${REF}_PNG15_hap1_hg38_annot.bed`,
         //    `datasets/${REF}/${REF}_gaps.bed`,
         //     `datasets/${REF}/PNG16_hap1_hg38_annot.bed`,
-               `datasets/${QUERY}/${QUERY}_gaps.bed`,
+         //      `datasets/${QUERY}/${QUERY}_gaps.bed`,
         //    `datasets/${REF}/CHM1_raw.bed9`,
         ],
         query: [
