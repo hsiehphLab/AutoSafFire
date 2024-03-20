@@ -342,19 +342,13 @@ function read_in_bed9_defaults() {
          //   `datasets/${REF}/${REF}_CenSat.bed`,
          // `datasets/${REF}/${REF}_dupmasker_colors.bed`,
         //    `datasets/${REF}/${REF}_genes_small.bed`,
-        //    `datasets/${REF}/${REF}_genes.bed`,
-        //    `datasets/${REF}/test1/${QUERY}_annot.bed`,
-           // `datasets/${REF}/${REF}_PNG15_hap1_hg38_annot.bed`,
-        //    `datasets/${REF}/${REF}_gaps.bed`,
-        //     `datasets/${REF}/PNG16_hap1_hg38_annot.bed`,
-        //       `datasets/${QUERY}/${QUERY}_gaps.bed`,
-        //    `datasets/${REF}/CHM1_raw.bed9`,
+            `datasets/${REF}/${REF}_genes.bed`,
+        //    `datasets/${REF}/${REF}_gaps.bed`
         ],
         query: [
-            `datasets/${REF}/test2/${QUERY}_annot.bed`,
-        //    `datasets/${REF}/${QUERY}_annot.bed`,
+            `datasets/${REF}/${QUERY}_annot.bed`,
         //    `datasets/${QUERY}/${QUERY}_dupmasker_colors.bed`,
-            `datasets/${QUERY}/${QUERY}_gaps.bed`,
+        //    `datasets/${QUERY}/${QUERY}_gaps.bed`,
         //    `datasets/${QUERY}/${QUERY}_CenSat.bed`,
         ]
     }
