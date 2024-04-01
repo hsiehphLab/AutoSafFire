@@ -340,7 +340,7 @@ function read_in_bed9_defaults() {
     var bed_files = {
         ref: [
          //   `datasets/${REF}/${REF}_CenSat.bed`,
-         // `datasets/${REF}/${REF}_dupmasker_colors.bed`,
+            `datasets/${REF}/${REF}_dupmasker_colors.bed`,
         //    `datasets/${REF}/${REF}_genes_small.bed`,
             `datasets/${REF}/${REF}_genes.bed`,
         //    `datasets/${REF}/${REF}_gaps.bed`
