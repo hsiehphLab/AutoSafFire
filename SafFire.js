@@ -433,7 +433,7 @@ function miropeats_d3(data) {
             .style("stroke-dasharray", ("1, 1"));
 
         // draw the scales 
-        // draw_x_and_y_scale();
+        draw_x_and_y_scale();
 
         // draw bed9
         for (var key in cur_bed9_data) {
@@ -471,7 +471,7 @@ function miropeats_d3(data) {
     function zoomed(event) {
         xz = event.transform.rescaleX(xscale);
         d3.selectAll("svg > *").remove();
-        // draw_x_and_y_scale();
+        draw_x_and_y_scale();
         draw_data(xz)
     }
 
@@ -499,7 +499,7 @@ function miropeats_d3(data) {
         clean_hover_text();
         d3.selectAll("svg > *").remove();
         d3.selectAll('.coordinates').remove();
-        // draw_x_and_y_scale();
+        draw_x_and_y_scale();
         draw_data(xz)
     });
 }
