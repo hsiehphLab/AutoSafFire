@@ -208,9 +208,9 @@ function miropeats_d3(data) {
 
 
         // add in the perid line
-        // const per_id_path = d3.path()
-        // per_id_path.moveTo(c1_st, y_perid);
-        // per_id_path.lineTo(c1_en, y_perid);
+        const per_id_path = d3.path()
+        per_id_path.moveTo(c1_st, y_perid);
+        per_id_path.lineTo(c1_en, y_perid);
         per_id_path.closePath()
         container.append("path")
             .attr("d", per_id_path)
@@ -322,11 +322,11 @@ function miropeats_d3(data) {
         //.selectAll("text")
         //.attr("dy", "10px");
 
-        // container.append('g')
-        //     .style("font", "8px helvetica")
-        //     .attr('transform', `translate(0, 0)`)
-        //     .call(d3.axisRight(yscale_c)
-        //         .ticks(7)
+        container.append('g')
+            .style("font", "8px helvetica")
+            .attr('transform', `translate(0, 0)`)
+            .call(d3.axisRight(yscale_c)
+                .ticks(7)
             );
 
     };
