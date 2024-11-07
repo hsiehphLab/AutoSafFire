@@ -310,17 +310,17 @@ function miropeats_d3(data) {
             .attr("fill", "white");
 
         // draw the y axis
-        // container.append('g')
-        //     .style("font", "8px helvetica")
-        //     //.attr('transform', `translate(0, 0)`)
-        //     .attr("opacity", 1)
-        //     .attr("fill", "black")
-        //     .attr("stroke-width", 0)
-        //     .call(d3.axisRight(yscale_d)
-        //         .tickFormat(format_y_axis)
-        //     )
-        //.selectAll("text")
-        //.attr("dy", "10px");
+        container.append('g')
+            .style("font", "8px helvetica")
+            //.attr('transform', `translate(0, 0)`)
+            .attr("opacity", 1)
+            .attr("fill", "black")
+            .attr("stroke-width", 0)
+            .call(d3.axisRight(yscale_d)
+                .tickFormat(format_y_axis)
+            )
+        // .selectAll("text")
+        // .attr("dy", "10px");
 
         container.append('g')
             .style("font", "8px helvetica")
