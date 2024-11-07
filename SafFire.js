@@ -322,11 +322,11 @@ function miropeats_d3(data) {
         //.selectAll("text")
         //.attr("dy", "10px");
 
-        // container.append('g')
-        //     .style("font", "8px helvetica")
-        //     .attr('transform', `translate(0, 0)`)
-        //     .call(d3.axisRight(yscale_c)
-        //         .ticks(7)
+        container.append('g')
+            .style("font", "8px helvetica")
+            .attr('transform', `translate(0, 0)`)
+            .call(d3.axisRight(yscale_c)
+                .ticks(7)
             );
 
     };
