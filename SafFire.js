@@ -327,7 +327,7 @@ function miropeats_d3(data) {
 
         container.append('g')
             .style("font", "8px helvetica")
-            .attr('transform', `translate(1000, 0)`)
+            .attr('transform', `translate(10000, 0)`)
             .call(d3.axisRight(yscale_c)
                 .ticks(7)
             );
