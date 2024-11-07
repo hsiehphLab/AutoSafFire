@@ -77,9 +77,9 @@ function miropeats_d3(data) {
     console.log(yscale_d.range());
 
     // perid scale
-    var yscale_c = d3.scaleLinear()
-        .domain([0, 1])
-        .range([height, height]);
+    // var yscale_c = d3.scaleLinear()
+    //     .domain([0, 1])
+    //     .range([height, height]);
     // var yscale_c = d3.scaleLinear()
     //     .domain([d3.max([89, d3.min(aln_data, function (d) { return d.id })]),
     //     d3.max(aln_data, function (d) { return d.id })])
