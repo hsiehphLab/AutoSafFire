@@ -208,14 +208,14 @@ function miropeats_d3(data) {
 
 
         // add in the perid line
-        const per_id_path = d3.path()
-        per_id_path.moveTo(c1_st, y_perid);
-        per_id_path.lineTo(c1_en, y_perid);
-        per_id_path.closePath()
-        container.append("path")
-            .attr("d", per_id_path)
-            .attr("stroke", "black")
-            .attr("z-index", -10000);
+        // const per_id_path = d3.path()
+        // per_id_path.moveTo(c1_st, y_perid);
+        // per_id_path.lineTo(c1_en, y_perid);
+        // per_id_path.closePath()
+        // container.append("path")
+        //     .attr("d", per_id_path)
+        //     .attr("stroke", "black")
+        //     .attr("z-index", -10000);
 
     }
     // format the d as input for drawing the alignment
