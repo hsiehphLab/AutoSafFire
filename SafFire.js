@@ -78,9 +78,12 @@ function miropeats_d3(data) {
 
     // perid scale
     var yscale_c = d3.scaleLinear()
-        .domain([d3.max([89, d3.min(aln_data, function (d) { return d.id })]),
-        d3.max(aln_data, function (d) { return d.id })])
-        .range([height, height - space_for_bed + 10 - margin.bottom + label_margin]);
+        .domain([0, 1])
+        .range([height, height]);
+    // var yscale_c = d3.scaleLinear()
+    //     .domain([d3.max([89, d3.min(aln_data, function (d) { return d.id })]),
+    //     d3.max(aln_data, function (d) { return d.id })])
+    //     .range([height, height - space_for_bed + 10 - margin.bottom + label_margin]);
 
     // opacity scale
     alpha_scale = d3.scaleLinear()
@@ -208,14 +211,14 @@ function miropeats_d3(data) {
 
 
         // add in the perid line
-        const per_id_path = d3.path()
-        per_id_path.moveTo(c1_st, y_perid);
-        per_id_path.lineTo(c1_en, y_perid);
-        per_id_path.closePath()
-        container.append("path")
-            .attr("d", per_id_path)
-            .attr("stroke", "black")
-            .attr("z-index", -10000);
+        // const per_id_path = d3.path()
+        // per_id_path.moveTo(c1_st, y_perid);
+        // per_id_path.lineTo(c1_en, y_perid);
+        // per_id_path.closePath()
+        // container.append("path")
+        //     .attr("d", per_id_path)
+        //     .attr("stroke", "black")
+        //     .attr("z-index", -10000);
 
     }
     // format the d as input for drawing the alignment
@@ -319,12 +322,12 @@ function miropeats_d3(data) {
             .call(d3.axisRight(yscale_d)
                 .tickFormat(format_y_axis)
             )
-        //.selectAll("text")
-        //.attr("dy", "10px");
+        // .selectAll("text")
+        // .attr("dy", "10px");
 
         container.append('g')
             .style("font", "8px helvetica")
-            .attr('transform', `translate(0, 0)`)
+            .attr('transform', `translate(10000, 0)`)
             .call(d3.axisRight(yscale_c)
                 .ticks(7)
             );
