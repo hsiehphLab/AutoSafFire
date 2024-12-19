@@ -1,4 +1,4 @@
-#ct   st      en      name    score   strand  tst     ten     color
+#ct	st	en	name	score	strand	tst	ten	color
 chr1	16	140060			-
 chr1	5525	9212			+
 chr1	5525	9458			-
