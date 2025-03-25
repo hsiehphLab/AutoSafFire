@@ -10,4 +10,4 @@ chr#	SD_st	SD_end	Assembly	Gene_intersect
 
 Gene_intersect column was obtained by bedtools intersect between SD coordinates and CHM13_v1.1 genes .bed file (USCS Genome browser)
 
-No module are required to be loaded.
+No modules are required to be loaded.
