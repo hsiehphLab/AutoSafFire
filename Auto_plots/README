@@ -1,0 +1,11 @@
+The Saffire_automate.sh script is to be run on an OnDemand instance. 
+
+To be run like:
+./Saffire_automate.sh sample_input.txt
+
+
+The sample input file's format:
+chr#	SD_st	SD_end	Assembly	Gene_intersect
+
+
+Gene_intersect column was obtained by bedtools intersect between SD coordinates and CHM13_v1.1 genes .bed file (USCS Genome browser)
