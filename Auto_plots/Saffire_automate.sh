@@ -4,7 +4,7 @@ DATASET="Hsieh_HPRC_PNG"
 REF="CHM13_v1.1"
 
 INPUT_FILE="$1"
-
+working_dir="$PWD"
 rm -rf ~/.config/chromium/Singleton*
 
 declare -A groups
@@ -26,7 +26,7 @@ for key in "${!groups[@]}"; do
 
     hash="#dataset=$DATASET&ref=$REF&query=${query}_T2T&pos=$chr:$st-$en&save=1&max_bed_items=5000"
     url="https://athefj.github.io/AutoSafFire/$hash"
-    echo "$url" > /panfs/jay/groups/7/hsiehph/shared/javid017-home/jobs/seg_dups/athef_files/all_samples/pt2/PNGs_plot/20kb_flank_plots/urls.txt
+#    echo "$url" > ${PWD}/urls.txt
     /bin/chromium-browser --new-window "$url" &
     sleep 16
 
@@ -55,5 +55,9 @@ for q in $queries; do
 done
 
 sleep 5
+rm ~/Downloads/*.svg ~/Downloads/*.png
+cd $working_dir
+mkdir -p plots_PDF
+mv ~/Downloads/*.pdf plots_PDF/
 killall chromium-browser
 
