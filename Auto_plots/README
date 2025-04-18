@@ -10,5 +10,5 @@ You should have an SSH key setup, without a passphrase. If you do have a passphr
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 
-The final_plotting.txt (last output of the pipeline) can then be passed to Saffire_automate.sh. This part will have to be done in an OnDemand instance.
- 
+Copy Auto_plots content from /projects/standard/hsiehph/shared/software/pipelines/AutoSafFire/Auto_plots/*. The changes will be pushed to the local repo in /projects/standard/hsiehph/shared/software/pipelines/AutoSafFire. You will have to be a collaborator to the repo in order to run the full pipeline (since you need to push changes). You can run the pipeline in "preprocess" mode without any further permissions. 
+
