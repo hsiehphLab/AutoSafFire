@@ -1,13 +1,14 @@
-The Saffire_automate.sh script is to be run on an OnDemand instance. 
+This snakemake pipeline is responsible for automating the whole process of making the making the plotting file required for the SafFire plotting script.
 
-To be run like:
-./Saffire_automate.sh sample_input.txt
+The changes need to be are in the config/config.yaml file.
 
+There are two ways to run the pipeline. The "full" mode or the "preprocess" mode. The full mode will do the alignment between query and reference genomes, convert the alignment.paf to a saffire-friendly format, and push the new saffire-friendly format file and the updated metadata file (mapping file) to the GitHub repo. It will then do the preprocessing part, wherein it will intersect the coords_file (input plotting file required for the SafFire plotting script) and the T2T CHM13v1.1 genes file. And it also adds the name of the query name to the final plotting file (required for annotations in the plots). Running the preprocess mode will only do the preprocessing of the coords_file.
 
-The sample input file's format:
-chr#	SD_st	SD_end	Assembly	Gene_intersect
+All the paths to the files (reference genome, query genome, coords_file, gene_file,) are in the config.yaml file. You also control the mode from the config.yaml file. 
 
+You should have an SSH key setup, without a passphrase. If you do have a passphrase, run the following code before running the full pipeline:
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
 
-Gene_intersect column was obtained by bedtools intersect between SD coordinates and CHM13_v1.1 genes .bed file (USCS Genome browser)
-
-No modules are required to be loaded.
+The final_plotting.txt (last output of the pipeline) can then be passed to Saffire_automate.sh. This part will have to be done in an OnDemand instance.
+ 

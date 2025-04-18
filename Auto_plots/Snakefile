@@ -1,0 +1,136 @@
+import os
+
+configfile: "config/config.yaml"
+
+SAMPLE_NAME = config["sample_name"]
+MODE = config.get("mode", "full")
+GENE_FILE = config.get("gene_file", None)
+SAFFIRE_REPO = config["saffire_repo_path"]
+ALIGNMENT_NAME = f"{SAMPLE_NAME}_alignment.paf"
+SAFFIRE_FORMATTED = f"datasets/custom/{SAMPLE_NAME}_saffireFMT"
+
+rule all:
+    input:
+        expand("results/{sample}/final_plotting.txt", sample=[SAMPLE_NAME]) +
+        ([f"results/{SAMPLE_NAME}/pushed_metadata.done"] if MODE == "full" else [])
+
+########################
+# STEP 1: ALIGN GENOMES
+########################
+
+if MODE == "full":
+
+    rule align_genomes:
+        input:
+            reference=config["reference"],
+            query=config["query"]
+        output:
+            paf="results/{sample}/alignment.paf"
+        params:
+            script="scripts/align.sh"
+        resources:
+            mem_mb=100000,
+            cpus=10
+        shell: """
+            JOBID=$(sbatch --parsable {params.script} {input.reference} {input.query} {output.paf})
+            echo "Submitted job $JOBID, waiting for it to finish..."
+            while squeue -j $JOBID 2>/dev/null | grep -q $JOBID; do
+            sleep 20
+            done
+            echo "SLURM job $JOBID completed."
+"""
+
+
+##############################
+# STEP 2: CONVERT FOR SAFFIRE
+##############################
+
+    rule convert_for_saffire:
+        input:
+            paf="results/{sample}/alignment.paf"
+        output:
+            saffire_fmt_file="results/{sample}/saffire_fmt"
+        params:
+            script="scripts/convert_for_saffire.sh",
+            sample=SAMPLE_NAME,
+            saffire_repo=SAFFIRE_REPO,
+            saffire_file_path=SAFFIRE_FORMATTED
+        shell: """
+            JOBID=$(sbatch --parsable {params.script} {input.paf} {output.saffire_fmt_file})
+            echo "Submitted job $JOBID, waiting for it to finish..."
+            while squeue -j $JOBID 2>/dev/null | grep -q $JOBID; do
+            sleep 20
+            done
+            echo "SLURM job $JOBID completed."
+            cp {output.saffire_fmt_file} {params.saffire_repo}/{params.saffire_file_path}
+"""
+
+#####################################
+# STEP 3: UPDATE METADATA + PUSH GIT
+#####################################
+
+    rule update_github_metadata:
+        input:
+            formatted="results/{sample}/saffire_fmt"
+        output:
+            touch("results/{sample}/pushed_metadata.done")
+        params:
+            repo=SAFFIRE_REPO
+        run:
+            metadata_file = os.path.join(params.repo, "datasets/metadata.csv")
+            new_line = f"custom,datasets/custom/{wildcards.sample}_saffireFMT,{wildcards.sample}_T2T,CHM13_v1.1"
+            if os.path.exists(metadata_file):
+                with open(metadata_file) as f:
+                    if new_line in f.read():
+                        print("Metadata already exists. Skipping append.")
+                        shell("touch {output}")
+                        return
+            with open(metadata_file, "a") as f:
+                f.write(new_line + "\n")
+            shell("""
+                cd {params.repo}
+                git add .
+                git commit -m "New snakemake run"
+                git push
+""")
+            shell("touch {output}")
+
+#######################################
+# STEP 4: PREPROCESS INPUT COORDINATES
+#######################################
+
+if MODE in ["preprocess", "full"]:
+    rule add_sample_name:
+        input:
+            coords=config["coords_file"]
+        output:
+            temp("results/{sample}/coords_with_name.bed")
+        params:
+            name=SAMPLE_NAME
+        shell: """
+            awk -v val={params.name} 'BEGIN {{OFS="\\t"}} {{print $1, $2, $3, val}}' {input.coords} > {output}
+"""
+
+    rule prepare_coords:
+        input:
+            "results/{sample}/coords_with_name.bed"
+        output:
+            "results/{sample}/coords_with_genes.bed"
+        run:
+            if GENE_FILE:
+                shell(
+                    f"module load bedtools; bedtools intersect -wa -wb -a {{input}} -b {GENE_FILE} | cut -f 1-4,8 > {{output}}"
+                )
+            else:
+                shell("cp {input} {output}")
+
+    rule add_flanking:
+        input:
+            "results/{sample}/coords_with_genes.bed"
+        output:
+            "results/{sample}/final_plotting.txt"
+        params:
+            script="scripts/flank_coords.sh"
+        shell:
+            "bash {params.script} {input} {output}"
+
