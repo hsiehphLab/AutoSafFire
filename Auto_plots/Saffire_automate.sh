@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DATASET="Hsieh_HPRC_PNG"
+DATASET="custom"
 REF="CHM13_v1.1"
 
 INPUT_FILE="$1"
