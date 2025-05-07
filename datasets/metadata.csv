@@ -1,7 +1,7 @@
 dataset,file,query,ref
 default,datasets/HPRC/HG002_2022-02-01_verkko_1.bed,HG002_2022-02-01_verkko_1,CHM13_v1.1
 default,datasets/HPRC/HG002_2022-02-01_verkko_2.bed,HG002_2022-02-01_verkko_2,CHM13_v1.1
-default,datasets/HPRC/T2T-CHM13v2_1.bed,T2T-CHM13v2_1,CHM13_v1.1
+default,datasets/HPRC/CHM13_v2.0.bed,CHM13_v2.0,CHM13_v1.1
 default,datasets/alignment-tables/GRCh38_to_CHM13_v1.1.tbl,GRCh38,CHM13_v1.1
 default,datasets/alignment-tables/CHM1_to_CHM13_v1.1.tbl,CHM1,CHM13_v1.1
 default,datasets/alignment-tables/CHM1_2.bed,CHM1_2,CHM13_v1.1
@@ -106,8 +106,8 @@ HPRC,datasets/HPRC/NA20129_1.bed,NA20129_1,CHM13_v1.1
 HPRC,datasets/HPRC/NA20129_2.bed,NA20129_2,CHM13_v1.1
 HPRC,datasets/HPRC/NA21309_1.bed,NA21309_1,CHM13_v1.1
 HPRC,datasets/HPRC/NA21309_2.bed,NA21309_2,CHM13_v1.1
-t2t-liftover,datasets/t2t-liftover-tables/grch38_masked-chm13v2-split.paf.SafFire.trim.double.bed,T2T-CHM13v2_1,GRCh38
-t2t-liftover,datasets/t2t-liftover-tables/hg19-chm13v2.paf.SafFire.simple.bed,T2T-CHM13v2_1,hg19
+t2t-liftover,datasets/t2t-liftover-tables/grch38_masked-chm13v2-split.paf.SafFire.trim.double.bed,CHM13_v2.0,GRCh38
+t2t-liftover,datasets/t2t-liftover-tables/hg19-chm13v2.paf.SafFire.simple.bed,CHM13_v2.0,hg19
 NHP,datasets/NHP/Bonobo/chm13_v1.0_h1.paf.stats.bed,Bonobo_h1_Mhudiblu_PPA,CHM13_v1.0
 NHP,datasets/NHP/Bonobo/chm13_v1.0_h2.paf.stats.bed,Bonobo_h2_Mhudiblu_PPA,CHM13_v1.0
 NHP,datasets/NHP/Chimpanzee/chm13_v1.0_h1.paf.stats.bed,Chimpanzee_h1_Clint_PTR,CHM13_v1.0

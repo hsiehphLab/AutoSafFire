@@ -1,6 +1,6 @@
 mode: full
 query_name: PNG15_h1_test
-ref_name: CHM13_v1.1 #(CHM13_v1.1/CHM13_v2.0/GRCh38)
+ref_name: CHM13_v1.1 #(CHM13_v1.1/T2T-CHM13v2_1/GRCh38)
 query: /projects/standard/hsiehph/gordo893/samples/PNG15b/verkko1.4.1/PNG15_ONT_HIC/assembly.haplotype1.fasta
 reference: /projects/standard/hsiehph/shared/hsiehph_shared/assemblies/CHM13/T2T/v1.1/chm13.v1.1.fasta
 coords_file: /projects/standard/hsiehph/shared/software/pipelines/AutoSafFire/Auto_plots/sample_coords_file.txt
