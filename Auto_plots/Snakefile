@@ -2,17 +2,18 @@ import os
 
 configfile: "config/config.yaml"
 
-SAMPLE_NAME = config["sample_name"]
+QUERY_NAME = config["query_name"]
+REF_NAME = config["ref_name"]
 MODE = config.get("mode", "full")
 GENE_FILE = config.get("gene_file", None)
 SAFFIRE_REPO = config["saffire_repo_path"]
-ALIGNMENT_NAME = f"{SAMPLE_NAME}_alignment.paf"
-SAFFIRE_FORMATTED = f"datasets/custom/{SAMPLE_NAME}_saffireFMT"
+ALIGNMENT_NAME = f"{QUERY_NAME}_alignment.paf"
+SAFFIRE_FORMATTED = f"datasets/custom/{QUERY_NAME}_saffireFMT"
 
 rule all:
     input:
-        expand("results/{sample}/final_plotting.txt", sample=[SAMPLE_NAME]) +
-        ([f"results/{SAMPLE_NAME}/pushed_metadata.done"] if MODE == "full" else [])
+        expand("results/{sample}/final_plotting.txt", sample=[QUERY_NAME]) +
+        ([f"results/{QUERY_NAME}/pushed_metadata.done"] if MODE == "full" else [])
 
 ########################
 # STEP 1: ALIGN GENOMES
@@ -52,7 +53,7 @@ if MODE == "full":
             saffire_fmt_file="results/{sample}/saffire_fmt"
         params:
             script="scripts/convert_for_saffire.sh",
-            sample=SAMPLE_NAME,
+            sample=QUERY_NAME,
             saffire_repo=SAFFIRE_REPO,
             saffire_file_path=SAFFIRE_FORMATTED
         shell: """
@@ -76,9 +77,10 @@ if MODE == "full":
             touch("results/{sample}/pushed_metadata.done")
         params:
             repo=SAFFIRE_REPO
+            refname=REF_NAME
         run:
             metadata_file = os.path.join(params.repo, "datasets/metadata.csv")
-            new_line = f"custom,datasets/custom/{wildcards.sample}_saffireFMT,{wildcards.sample}_T2T,CHM13_v1.1"
+            new_line = f"custom,datasets/custom/{wildcards.sample}_saffireFMT,{wildcards.sample}_T2T,{params.refname}"
             if os.path.exists(metadata_file):
                 with open(metadata_file) as f:
                     if new_line in f.read():
@@ -106,7 +108,7 @@ if MODE in ["preprocess", "full"]:
         output:
             temp("results/{sample}/coords_with_name.bed")
         params:
-            name=SAMPLE_NAME
+            name=QUERY_NAME
         shell: """
             awk -v val={params.name} 'BEGIN {{OFS="\\t"}} {{print $1, $2, $3, val}}' {input.coords} > {output}
 """

@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule add_sample_name in file /projects/standard/hsiehph/shared/software/pipelines/AutoSafFire/Auto_plots/Snakefile, line 104:
+Missing input files for rule add_sample_name:
+    output: results/PNG15_h1_test/coords_with_name.bed
+    wildcards: sample=PNG15_h1_test
+    affected files:
+        /projects/standard/hsiehph/shared/javid017-home/jobs/seg_dups/athef_files/all_samples/pt2/PNGs_plot/20kb_flank_plots/test
