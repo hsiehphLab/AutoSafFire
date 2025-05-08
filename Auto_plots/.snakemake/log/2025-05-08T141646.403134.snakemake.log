@@ -53,3 +53,6 @@ rule update_github_metadata:
     wildcards: sample=PNG15_h1_test
     resources: tmpdir=/tmp
 
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-05-08T141646.403134.snakemake.log
