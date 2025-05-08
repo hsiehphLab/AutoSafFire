@@ -76,7 +76,7 @@ if MODE == "full":
         output:
             touch("results/{sample}/pushed_metadata.done")
         params:
-            repo=SAFFIRE_REPO
+            repo=SAFFIRE_REPO,
             refname=REF_NAME
         run:
             metadata_file = os.path.join(params.repo, "datasets/metadata.csv")
