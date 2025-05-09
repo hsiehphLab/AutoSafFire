@@ -1,3 +1,0 @@
-KeyError in file /projects/standard/hsiehph/shared/software/pipelines/AutoSafFire/Auto_plots/Snakefile, line 5:
-'query_name'
-  File "/projects/standard/hsiehph/shared/software/pipelines/AutoSafFire/Auto_plots/Snakefile", line 5, in <module>

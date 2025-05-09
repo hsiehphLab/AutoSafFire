@@ -12,3 +12,5 @@ ssh-add ~/.ssh/id_ed25519
 
 Copy Auto_plots content from /projects/standard/hsiehph/shared/software/pipelines/AutoSafFire/Auto_plots/*. The changes will be pushed to the local repo in /projects/standard/hsiehph/shared/software/pipelines/AutoSafFire. You will have to be a collaborator to the repo in order to run the full pipeline (since you need to push changes). You can run the pipeline in "preprocess" mode without any further permissions. 
 
+run source /projects/standard/hsiehph/shared/bin/initialize_conda.sh
+conda activate snakemake

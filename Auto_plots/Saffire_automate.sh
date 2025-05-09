@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DATASET="custom"
-REF="CHM13_v1.1"
+REF="CHM13_v2.0"
 
 INPUT_FILE="$1"
 working_dir="$PWD"
@@ -25,7 +25,7 @@ for key in "${!groups[@]}"; do
     genes="${groups[$key]}"
 
     hash="#dataset=$DATASET&ref=$REF&query=${query}_T2T&pos=$chr:$st-$en&save=1&max_bed_items=5000"
-    url="https://athefj.github.io/AutoSafFire/$hash"
+    url="https://hsiehphlab.github.io/AutoSafFire/$hash"
 #    echo "$url" > ${PWD}/urls.txt
     /bin/chromium-browser --new-window "$url" &
     sleep 16
