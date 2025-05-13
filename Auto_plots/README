@@ -1,16 +1,16 @@
 This snakemake pipeline is responsible for automating the whole process of making the making the plotting file required for the SafFire plotting script.
 
-The changes need to be done are in the config/config.yaml file.
 
 There are two ways to run the pipeline. The "full" mode or the "preprocess" mode. The full mode will do the alignment between query and reference genomes, convert the alignment.paf to a saffire-friendly format, and push the new saffire-friendly format file and the updated metadata file (mapping file) to the GitHub repo. It will then do the preprocessing part, wherein it will intersect the coords_file (input plotting file required for the SafFire plotting script) and the T2T CHM13v1.1 genes file. And it also adds the name of the query name to the final plotting file (required for annotations in the plots). Running the preprocess mode will only do the preprocessing of the coords_file.
 
-All the paths to the files (reference genome, query genome, coords_file, gene_file,) are in the config.yaml file. You also control the mode from the config.yaml file. 
+All the paths to the files (reference genome, query genome, coords_file, gene_file) are in the config.yaml file. You also control the mode from the config.yaml file. 
 
-You should have an SSH key setup, without a passphrase. If you do have a passphrase, run the following code before running the full pipeline:
+Requirements:
+1)You should have an SSH key setup for GitHub, without a passphrase. If you do have a passphrase, run the following code before running the full pipeline:
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+2) You will have to be a collaborator to the hsiehphLab/AutoSafFire repo in order to run the full pipeline (since you need to push changes). You can run the pipeline in "preprocess" mode without any further permissions. 
 
-Copy Auto_plots content from /projects/standard/hsiehph/shared/software/pipelines/AutoSafFire/Auto_plots/*. The changes will be pushed to the local repo in /projects/standard/hsiehph/shared/software/pipelines/AutoSafFire. You will have to be a collaborator to the repo in order to run the full pipeline (since you need to push changes). You can run the pipeline in "preprocess" mode without any further permissions. 
-
-run source /projects/standard/hsiehph/shared/bin/initialize_conda.sh
-conda activate snakemake
+Steps:
+1) Make changes to the config.yaml file in config/config.yaml (paths to reference genome, query genome, coords_file, gene_file, etc). Set mode to full/preprocess.
+2) Run sbatch_run_script.sh 
